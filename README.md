@@ -1,3 +1,19 @@
+# Shambhala ERP
+
+Shambhala ERP is a Shambhala Tech customization of ERPNext, with its own product name, application icon, login branding, and local laptop launcher.
+
+Based on ERPNext 16.53.0 and Frappe Framework 16.55.2. The internal application name remains `erpnext` so existing ERPNext functionality and migrations continue to work.
+
+- Website: [Shambhala Tech](https://shambhalatech.co.in)
+- Source: [Shambhala ERP on GitHub](https://github.com/pratik101sabale-dotcom/shambhala-erp)
+- License: [GNU General Public License v3](license.txt)
+- Branding setup: [Shambhala ERP instructions](shambhala/README.md)
+
+The original ERPNext source, copyright notices, license, and documentation are preserved below. Shambhala ERP is a customization of the upstream project and is not an official Frappe product.
+
+![Shambhala ERP login](shambhala/screenshots/login.jpg)
+
+---
 
 <div align="center">
     <a href="https://frappe.io/erpnext">

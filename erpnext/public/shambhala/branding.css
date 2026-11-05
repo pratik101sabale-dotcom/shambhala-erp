@@ -1,0 +1,10 @@
+html[data-shambhala-brand="erp"] .page-card-head .app-logo {
+	width: 52px;
+	height: 52px;
+	object-fit: contain;
+}
+
+.shambhala-brand-name {
+	font-weight: 700;
+	letter-spacing: -0.025em;
+}

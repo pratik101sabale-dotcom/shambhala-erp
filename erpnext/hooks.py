@@ -1,19 +1,19 @@
 app_name = "erpnext"
-app_title = "ERPNext"
+app_title = "Shambhala ERP"
 app_publisher = "Frappe Technologies Pvt. Ltd."
-app_description = """ERP made simple"""
+app_description = """Shambhala ERP, a Shambhala Tech customization of ERPNext."""
 app_icon = "fa fa-th"
 app_color = "#e74c3c"
 app_email = "hello@frappe.io"
 app_license = "GNU General Public License (v3)"
-source_link = "https://github.com/frappe/erpnext"
-app_logo_url = "/assets/erpnext/images/erpnext-logo.svg"
+source_link = "https://github.com/pratik101sabale-dotcom/shambhala-erp"
+app_logo_url = "/assets/erpnext/shambhala/logo.svg"
 app_home = "/desk/home"
 
 add_to_apps_screen = [
 	{
 		"name": app_name,
-		"logo": "/assets/erpnext/images/erpnext-logo.svg",
+		"logo": app_logo_url,
 		"title": app_title,
 		"route": app_home,
 		"setup_wizard_text": "Let's give your business a home.",
@@ -47,9 +47,10 @@ code_only_modules = {
 
 develop_version = "15.x.x-develop"
 
-app_include_js = "erpnext.bundle.js"
-app_include_css = "erpnext.bundle.css"
-web_include_css = "erpnext-web.bundle.css"
+app_include_js = ["erpnext.bundle.js", "/assets/erpnext/shambhala/branding.js"]
+app_include_css = ["erpnext.bundle.css", "/assets/erpnext/shambhala/branding.css"]
+web_include_js = ["/assets/erpnext/shambhala/branding.js"]
+web_include_css = ["erpnext-web.bundle.css", "/assets/erpnext/shambhala/branding.css"]
 email_css = "email_erpnext.bundle.css"
 
 app_include_icons = [
@@ -90,7 +91,11 @@ welcome_email = "erpnext.setup.utils.welcome_email"
 setup_wizard_requires = "assets/erpnext/js/setup_wizard.js"
 setup_wizard_stages = "erpnext.setup.setup_wizard.setup_wizard.get_setup_stages"
 
-after_install = "erpnext.setup.install.after_install"
+after_install = [
+	"erpnext.setup.install.after_install",
+	"erpnext.shambhala.branding.apply_branding",
+]
+after_migrate = ["erpnext.shambhala.branding.apply_branding"]
 
 after_app_install = "erpnext.setup.install.after_app_install"
 after_app_uninstall = "erpnext.setup.install.after_app_uninstall"
@@ -141,8 +146,8 @@ calendars = ["Task", "Work Order", "Sales Order", "Holiday List", "ToDo"]
 website_generators = ["BOM", "Sales Partner"]
 
 website_context = {
-	"favicon": "/assets/erpnext/images/erpnext-favicon.svg",
-	"splash_image": "/assets/erpnext/images/erpnext-logo.svg",
+	"favicon": "/assets/erpnext/shambhala/logo.svg",
+	"splash_image": "/assets/erpnext/shambhala/logo.svg",
 }
 
 # nosemgrep

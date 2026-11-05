@@ -1,0 +1,20 @@
+[Unit]
+Description=ERPNext local development environment
+Requires=mariadb.service
+After=network.target mariadb.service
+
+[Service]
+Type=simple
+User=frappe
+Group=frappe
+WorkingDirectory=/opt/erpnext-dev/frappe-bench
+ExecStart=/bin/bash /opt/erpnext-dev/run-development.sh
+KillSignal=SIGINT
+TimeoutStopSec=30
+Restart=on-failure
+RestartSec=5
+StandardOutput=append:/opt/erpnext-dev/bench.log
+StandardError=append:/opt/erpnext-dev/bench.log
+
+[Install]
+WantedBy=multi-user.target
