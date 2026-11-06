@@ -1,0 +1,41 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<h1>{{ _("Shambhala Email Preferences") }}</h1>
+{% if can_update %}
+<form id="shambhala-email-preferences">
+	<p>{{ _("If you opt in, your email address is saved in the site owner's lead workbook for Shambhala news and follow-up.") }}</p>
+	<label class="d-flex align-items-center gap-2">
+		<input type="checkbox" name="receive_updates"{% if receive_updates %} checked{% endif %}>
+		{{ _("Email me Shambhala updates") }}
+	</label>
+	<button type="submit" class="btn btn-primary mt-3">{{ _("Save preference") }}</button>
+	<p class="mt-3" role="status"></p>
+</form>
+<script>
+frappe.ready(() => {
+	const form = document.querySelector("#shambhala-email-preferences");
+	form.addEventListener("submit", async (event) => {
+		event.preventDefault();
+		const button = form.querySelector("button");
+		const status = form.querySelector("[role=status]");
+		button.disabled = true;
+		try {
+			await frappe.call({
+				method: "erpnext.shambhala.leads.save_preference",
+				args: { receive_updates: form.elements.receive_updates.checked ? 1 : 0 },
+				type: "POST",
+			});
+			status.textContent = __("Preference saved.");
+		} catch {
+			status.textContent = __("The preference could not be saved. Try again.");
+		} finally {
+			button.disabled = false;
+		}
+	});
+});
+</script>
+{% else %}
+<p>{{ _("Email preferences are available for Shambhala portal accounts.") }}</p>
+{% endif %}
+{% endblock %}

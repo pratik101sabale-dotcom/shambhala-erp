@@ -15,6 +15,10 @@ Restart the bench processes and reload the browser. New installations and migrat
 
 The customization changes the application title, icon, login heading, favicon, and website branding. It does not rename the site's Company records or alter accounting data.
 
+## Account setup
+
+See [self-service accounts and email leads](account-and-leads.md) for setup, workbook access, and the reusable login pattern.
+
 ## Development
 
 Use a Frappe version-16 bench with Python 3.14, Node.js 24, MariaDB 11.8, and Redis. The branding code is in `erpnext/shambhala/branding.py`, the hooks are in `erpnext/hooks.py`, and the browser assets are in `erpnext/public/shambhala`.

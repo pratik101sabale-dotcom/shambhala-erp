@@ -49,7 +49,10 @@ develop_version = "15.x.x-develop"
 
 app_include_js = ["erpnext.bundle.js", "/assets/erpnext/shambhala/branding.js"]
 app_include_css = ["erpnext.bundle.css", "/assets/erpnext/shambhala/branding.css"]
-web_include_js = ["/assets/erpnext/shambhala/branding.js"]
+web_include_js = [
+	"/assets/erpnext/shambhala/branding.js",
+	"/assets/erpnext/shambhala/lead-signup.js",
+]
 web_include_css = ["erpnext-web.bundle.css", "/assets/erpnext/shambhala/branding.css"]
 email_css = "email_erpnext.bundle.css"
 
@@ -94,8 +97,12 @@ setup_wizard_stages = "erpnext.setup.setup_wizard.setup_wizard.get_setup_stages"
 after_install = [
 	"erpnext.setup.install.after_install",
 	"erpnext.shambhala.branding.apply_branding",
+	"erpnext.shambhala.leads.install_fields",
 ]
-after_migrate = ["erpnext.shambhala.branding.apply_branding"]
+after_migrate = [
+	"erpnext.shambhala.branding.apply_branding",
+	"erpnext.shambhala.leads.install_fields",
+]
 
 after_app_install = "erpnext.setup.install.after_app_install"
 after_app_uninstall = "erpnext.setup.install.after_app_uninstall"
@@ -109,7 +116,10 @@ get_help_messages = "erpnext.utilities.activation.get_help_messages"
 filters_config = "erpnext.startup.filters.get_filters_config"
 additional_print_settings = "erpnext.controllers.print_settings.get_print_settings"
 
-on_session_creation = "erpnext.portal.utils.create_customer_or_supplier"
+on_session_creation = [
+	"erpnext.portal.utils.create_customer_or_supplier",
+	"erpnext.shambhala.leads.on_session_creation",
+]
 
 treeviews = [
 	"Account",
